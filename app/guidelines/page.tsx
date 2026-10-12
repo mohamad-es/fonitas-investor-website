@@ -1,5 +1,5 @@
-import { HubPageRoute } from "@/components/portal/hub-page";
+import { redirect } from "next/navigation";
 
-export default function GuidelinesPage() {
-  return <HubPageRoute slug="guidelines" />;
+export default function GuidelinesRedirect() {
+  redirect("/why-fonitas");
 }
