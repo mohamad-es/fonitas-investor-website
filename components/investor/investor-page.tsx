@@ -1,0 +1,92 @@
+import Link from "next/link";
+import { ArrowRight, BarChart3, BriefcaseBusiness, Building2, CheckCircle2, Globe2, Lightbulb, LineChart, ShieldCheck, Sparkles, Target, TrendingUp, Users } from "lucide-react";
+import { getLocale } from "next-intl/server";
+
+type Section = { title: string; body: string; items?: string[] };
+type Page = { eyebrow: string; title: string; intro: string; sections: Section[]; cta?: string };
+
+const content = {
+  en: {
+    "why-fonitas": { eyebrow: "WHY FONITAS", title: "Building the infrastructure behind application growth", intro: "FONITAS is positioning itself as a publishing partner for application producers — connecting publishing, promotion and growth into one operating layer.", sections: [
+      { title: "A fragmented market needs a partner", body: "Application producers face a fragmented path across publishing, distribution, promotion, compliance and growth. FONITAS brings these needs together around one partner relationship." },
+      { title: "Built for application producers", body: "The model is designed around the needs of teams that already create applications but need stronger distribution, publishing and commercial support.", items: ["Publishing and launch support", "Promotion and market visibility", "Growth-oriented operational services"] },
+      { title: "Why now", body: "The application economy continues to expand while creators increasingly need specialized partners to navigate distribution and growth. FONITAS is building for that gap." },
+    ] },
+    "market-opportunity": { eyebrow: "MARKET OPPORTUNITY", title: "A growing ecosystem with room for specialized infrastructure", intro: "FONITAS operates at the intersection of application production, publishing, distribution and growth — a position that can expand with every application partner served.", sections: [
+      { title: "Large and expanding application economy", body: "Millions of applications compete for attention across digital marketplaces. Producers need more than development capability; they need reliable routes to publication and users." },
+      { title: "Structural fragmentation", body: "Publishing, promotion, analytics, marketplace requirements and growth activities are often handled by separate tools and vendors. FONITAS aims to consolidate that operational relationship." },
+      { title: "Scalable opportunity", body: "A partner-led model can scale across application producers, categories and markets without requiring FONITAS to build every application itself." },
+    ] },
+    "business-model": { eyebrow: "BUSINESS MODEL", title: "A partner model designed around recurring application needs", intro: "FONITAS is not an app builder. It is a Publishing Partner that creates value around the lifecycle of applications after and alongside production.", sections: [
+      { title: "Publishing services", body: "Support producers with the operational work required to bring applications to supported marketplaces and maintain a reliable publishing workflow." },
+      { title: "Promotion & growth", body: "Extend the relationship beyond publication through promotion, visibility and growth-oriented services that can increase the value generated per application partner." },
+      { title: "Multiple revenue opportunities", body: "The platform can support service revenue, recurring relationships and additional growth products as the operating layer matures." },
+    ] },
+    "traction": { eyebrow: "TRACTION & GROWTH", title: "From operating foundation to scalable growth", intro: "FONITAS is building the product, operational capabilities and partner infrastructure required to become a long-term publishing partner for application producers.", sections: [
+      { title: "Current focus", body: "Strengthen the core platform, publishing workflows, partner experience and operational foundations before scaling aggressively." },
+      { title: "Expansion path", body: "The roadmap can progress from publishing infrastructure into promotion, growth services, partnerships and broader market coverage." },
+      { title: "Milestone discipline", body: "Growth will be measured through concrete operating indicators rather than unsupported claims. Investor materials will be updated as verified metrics become available." },
+    ] },
+    "investment": { eyebrow: "INVESTMENT OPPORTUNITY", title: "Invest in the infrastructure behind the next generation of applications", intro: "FONITAS is seeking strategic capital and partnerships to accelerate product development, market expansion and the transition from operating platform to scalable publishing partner.", sections: [
+      { title: "What investment enables", body: "Capital can accelerate the areas with the highest strategic leverage: platform development, publishing infrastructure, market expansion, partnerships and growth capabilities.", items: ["Product and engineering", "Publisher and marketplace partnerships", "Go-to-market and demand generation", "Operational scale"] },
+      { title: "Investment thesis", body: "The opportunity is to build a specialized partner layer around a large and fragmented application economy — without taking on the cost of becoming the application producer itself." },
+      { title: "Strategic fit", body: "FONITAS is particularly relevant to investors and strategic partners interested in software infrastructure, application ecosystems, digital marketplaces and technology-enabled services." },
+    ], cta: "Request the investor deck" },
+    "insights": { eyebrow: "INVESTOR INSIGHTS", title: "Market perspectives and company updates", intro: "A growing library of perspectives on application publishing, digital marketplaces, growth infrastructure and the FONITAS journey.", sections: [
+      { title: "The rise of publishing partners", body: "Why application producers increasingly need specialized operational partners beyond development." },
+      { title: "From publishing to growth", body: "How a publishing relationship can evolve into a broader growth partnership." },
+      { title: "Building for a fragmented ecosystem", body: "The product and operational challenges of creating infrastructure across multiple application markets." },
+    ] },
+    "faq": { eyebrow: "INVESTOR FAQ", title: "Questions investors are likely to ask", intro: "A concise starting point for understanding the FONITAS opportunity. Detailed financial and investment information is shared through the investor process.", sections: [
+      { title: "What is FONITAS?", body: "FONITAS is a Publishing Partner for application producers, providing services around publishing, promotion and growth." },
+      { title: "Is FONITAS an app builder?", body: "No. FONITAS is designed to serve producers that already create applications and need publishing, distribution and growth support." },
+      { title: "How does FONITAS make money?", body: "The model is centered on publishing and related services, with additional recurring and growth-oriented opportunities as the platform expands." },
+      { title: "What is the investment being used for?", body: "The primary focus is product development, infrastructure, partnerships, market expansion and building scalable operating capacity." },
+      { title: "Where can I get detailed financial information?", body: "Verified financial, traction and fundraising information should be requested directly through the investor process rather than inferred from this public website." },
+    ] },
+  } satisfies Record<string, Page>,
+  fa: {
+    "why-fonitas": { eyebrow: "چرا فونیتاس", title: "ساخت زیرساخت رشد در پشت اپلیکیشن‌ها", intro: "FONITAS خود را به‌عنوان شریک انتشار برای تولیدکنندگان اپلیکیشن تعریف می‌کند؛ شریکی که انتشار، پروموشن و رشد را در یک رابطه عملیاتی به هم متصل می‌کند.", sections: [{ title: "بازار پراکنده به یک شریک نیاز دارد", body: "تولیدکنندگان اپلیکیشن با مسیرهای پراکنده انتشار، توزیع، تبلیغات و رشد روبه‌رو هستند. FONITAS این نیازها را در قالب یک شریک واحد کنار هم قرار می‌دهد." }, { title: "ساخته‌شده برای تولیدکنندگان اپلیکیشن", body: "مدل FONITAS برای تیم‌هایی طراحی شده که اپلیکیشن تولید می‌کنند اما برای انتشار، توزیع و پشتیبانی تجاری به یک شریک تخصصی نیاز دارند." }, { title: "چرا اکنون؟", body: "اقتصاد اپلیکیشن در حال گسترش است و تولیدکنندگان بیش از گذشته به شرکای تخصصی برای عبور از پیچیدگی انتشار و رشد نیاز دارند." }] },
+    "market-opportunity": { eyebrow: "فرصت بازار", title: "اکوسیستمی بزرگ با فضای رشد برای زیرساخت تخصصی", intro: "FONITAS در تقاطع تولید اپلیکیشن، انتشار، توزیع و رشد فعالیت می‌کند؛ جایگاهی که با هر شریک جدید می‌تواند توسعه پیدا کند.", sections: [{ title: "اقتصاد بزرگ و رو‌به‌رشد اپلیکیشن", body: "میلیون‌ها اپلیکیشن برای جلب توجه کاربران در مارکت‌های دیجیتال رقابت می‌کنند و تولیدکنندگان به چیزی فراتر از توسعه فنی نیاز دارند." }, { title: "پراکندگی ساختاری", body: "انتشار، تبلیغات، تحلیل، الزامات مارکت و رشد معمولاً توسط ابزارها و تأمین‌کنندگان مختلف انجام می‌شود. FONITAS به دنبال یکپارچه‌کردن این رابطه عملیاتی است." }, { title: "فرصت مقیاس‌پذیر", body: "مدل مبتنی بر شراکت می‌تواند در میان تولیدکنندگان، دسته‌ها و بازارهای مختلف توسعه پیدا کند بدون اینکه FONITAS مجبور باشد خودش هر اپلیکیشن را تولید کند." }] },
+    "business-model": { eyebrow: "مدل کسب‌وکار", title: "مدل شراکتی بر پایه نیازهای مستمر اپلیکیشن", intro: "FONITAS سازنده اپلیکیشن نیست؛ یک Publishing Partner است که در چرخه انتشار و رشد اپلیکیشن ارزش ایجاد می‌کند.", sections: [{ title: "خدمات انتشار", body: "پشتیبانی از فعالیت‌های عملیاتی لازم برای رساندن اپلیکیشن به مارکت‌های موردنظر و مدیریت فرایند انتشار." }, { title: "پروموشن و رشد", body: "گسترش رابطه پس از انتشار با خدمات افزایش دیده‌شدن، پروموشن و رشد که ارزش هر شریک را افزایش می‌دهد." }, { title: "فرصت‌های متنوع درآمدی", body: "مدل می‌تواند شامل درآمد خدماتی، روابط تکرارشونده و محصولات رشد جدید در مسیر بلوغ پلتفرم باشد." }] },
+    "traction": { eyebrow: "رشد و پیشرفت", title: "از زیرساخت عملیاتی تا رشد مقیاس‌پذیر", intro: "FONITAS در حال ساخت محصول، عملیات و زیرساخت شراکت لازم برای تبدیل‌شدن به شریک بلندمدت تولیدکنندگان اپلیکیشن است.", sections: [{ title: "تمرکز فعلی", body: "تقویت پلتفرم، فرایندهای انتشار، تجربه شریک و زیرساخت عملیاتی پیش از مقیاس‌دهی جدی." }, { title: "مسیر توسعه", body: "حرکت از زیرساخت انتشار به سمت پروموشن، خدمات رشد، شراکت‌ها و پوشش بازارهای بیشتر." }, { title: "رشد مبتنی بر شاخص واقعی", body: "رشد با شاخص‌های عملیاتی قابل‌اثبات سنجیده خواهد شد و اطلاعات تأییدشده به‌مرور در اختیار سرمایه‌گذاران قرار می‌گیرد." }] },
+    "investment": { eyebrow: "فرصت سرمایه‌گذاری", title: "سرمایه‌گذاری روی زیرساخت نسل بعدی اپلیکیشن‌ها", intro: "FONITAS به دنبال سرمایه و شراکت استراتژیک برای سرعت‌بخشیدن به توسعه محصول، گسترش بازار و تبدیل پلتفرم عملیاتی به یک Publishing Partner مقیاس‌پذیر است.", sections: [{ title: "سرمایه چه چیزی را فعال می‌کند؟", body: "سرمایه می‌تواند توسعه محصول، زیرساخت انتشار، گسترش بازار، شراکت‌ها و قابلیت‌های رشد را سرعت دهد." }, { title: "تز سرمایه‌گذاری", body: "فرصت اصلی ساخت یک لایه تخصصی شراکت در اقتصاد بزرگ و پراکنده اپلیکیشن است؛ بدون تحمل هزینه تبدیل‌شدن به تولیدکننده اپلیکیشن." }, { title: "تناسب استراتژیک", body: "FONITAS برای سرمایه‌گذاران و شرکایی جذاب است که به زیرساخت نرم‌افزاری، اکوسیستم اپلیکیشن، مارکت‌های دیجیتال و خدمات فناوری علاقه‌مند هستند." }], cta: "دریافت Investor Deck" },
+    "insights": { eyebrow: "بینش سرمایه‌گذاری", title: "دیدگاه‌های بازار و اخبار شرکت", intro: "مجموعه‌ای از دیدگاه‌ها درباره انتشار اپلیکیشن، مارکت‌های دیجیتال، زیرساخت رشد و مسیر FONITAS.", sections: [{ title: "ظهور Publishing Partnerها", body: "چرا تولیدکنندگان اپلیکیشن بیش از گذشته به شرکای عملیاتی تخصصی نیاز دارند." }, { title: "از انتشار تا رشد", body: "چطور رابطه انتشار می‌تواند به یک شراکت گسترده‌تر برای رشد تبدیل شود." }, { title: "ساخت زیرساخت برای یک اکوسیستم پراکنده", body: "چالش‌های محصول و عملیات در ساخت زیرساخت میان چندین بازار اپلیکیشن." }] },
+    "faq": { eyebrow: "سؤالات سرمایه‌گذاران", title: "سؤالاتی که سرمایه‌گذاران معمولاً می‌پرسند", intro: "نقطه شروعی برای شناخت فرصت FONITAS. اطلاعات مالی و سرمایه‌گذاری دقیق از طریق فرایند Investor ارائه می‌شود.", sections: [{ title: "FONITAS چیست؟", body: "FONITAS یک Publishing Partner برای تولیدکنندگان اپلیکیشن است و خدمات انتشار، پروموشن و رشد ارائه می‌دهد." }, { title: "آیا FONITAS سازنده اپلیکیشن است؟", body: "خیر. FONITAS برای تولیدکنندگانی طراحی شده که اپلیکیشن را تولید کرده‌اند و به پشتیبانی انتشار، توزیع و رشد نیاز دارند." }, { title: "مدل درآمدی چیست؟", body: "مدل بر خدمات انتشار و خدمات مرتبط بنا شده و در ادامه می‌تواند درآمدهای تکرارشونده و محصولات رشد را توسعه دهد." }, { title: "سرمایه برای چه چیزی استفاده می‌شود؟", body: "تمرکز اصلی روی توسعه محصول، زیرساخت، شراکت‌ها، توسعه بازار و ایجاد ظرفیت عملیاتی مقیاس‌پذیر است." }, { title: "اطلاعات مالی دقیق را از کجا دریافت کنم؟", body: "اطلاعات مالی، traction و fundraising تأییدشده از طریق فرایند Investor ارائه می‌شود و نباید از سایت عمومی برداشت شود." }] },
+  } satisfies Record<string, Page>,
+} as const;
+
+const icons = [Target, Globe2, BriefcaseBusiness, TrendingUp, LineChart, Lightbulb, CircleHelpIcon];
+function CircleHelpIcon() { return CircleHelp as never; }
+
+export async function InvestorPage({ slug }: { slug: keyof typeof content.en }) {
+  const locale = (await getLocale()) as "en" | "fa" | "ar";
+  const page = (content[locale] ?? content.en)[slug] ?? content.en[slug];
+  const isFaq = slug === "faq";
+  return (
+    <main className="min-h-[calc(100vh-70px)] bg-base-200">
+      <section className="relative overflow-hidden border-b border-base-300 bg-base-100">
+        <div className="pointer-events-none absolute -top-32 left-1/2 h-96 w-[720px] -translate-x-1/2 rounded-full bg-primary/10 blur-3xl" />
+        <div className="relative mx-auto max-w-[1100px] px-6 pb-16 pt-20 text-center max-md:px-5 max-md:pb-12 max-md:pt-14">
+          <p className="text-xs font-bold uppercase tracking-[0.12em] text-primary">{page.eyebrow}</p>
+          <h1 className="mx-auto mt-3 max-w-4xl text-[clamp(2.5rem,6vw,4.8rem)] font-bold leading-[1.02] tracking-[-0.045em] text-base-content">{page.title}</h1>
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-base-content/65">{page.intro}</p>
+        </div>
+      </section>
+      <section className="mx-auto max-w-[1100px] px-6 py-14 max-md:px-5 max-md:py-9">
+        <div className="grid gap-5 md:grid-cols-2">
+          {page.sections.map((section, index) => {
+            const Icon = icons[index % icons.length] as any;
+            return <article key={section.title} className="rounded-[22px] border border-base-300 bg-base-100 p-7 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg max-md:p-5">
+              <div className="mb-5 flex items-center justify-between"><div className="grid size-11 place-items-center rounded-xl bg-primary/10 text-primary"><Icon size={21} /></div><span className="text-xs font-bold text-base-content/35">{String(index + 1).padStart(2, "0")}</span></div>
+              <h2 className="text-xl font-bold tracking-tight text-base-content">{section.title}</h2>
+              <p className="mt-3 text-sm leading-7 text-base-content/65">{section.body}</p>
+              {section.items && <ul className="mt-4 space-y-2">{section.items.map(item => <li key={item} className="flex gap-2 text-sm leading-6 text-base-content/70"><CheckCircle2 size={16} className="mt-1 shrink-0 text-primary" />{item}</li>)}</ul>}
+            </article>;
+          })}
+        </div>
+        {(page.cta || isFaq) && <div className="mt-8 flex flex-col items-center rounded-[24px] border border-primary/20 bg-primary/5 px-6 py-10 text-center"><Sparkles className="text-primary" size={25} /><h2 className="mt-3 text-2xl font-bold">{page.cta ?? (locale === "fa" ? "برای اطلاعات بیشتر با تیم سرمایه‌گذاری در ارتباط باشید" : "Connect with the FONITAS investor team")}</h2><p className="mt-2 max-w-xl text-sm leading-6 text-base-content/60">{locale === "fa" ? "اطلاعات تکمیلی، Investor Deck و داده‌های تأییدشده از طریق فرایند سرمایه‌گذاری ارائه می‌شوند." : "Detailed information, the investor deck and verified metrics are shared through the investor process."}</p><Link href="mailto:investors@fonitas.com?subject=FONITAS%20Investor%20Inquiry" className="btn btn-primary mt-5 rounded-xl px-6">{locale === "fa" ? "تماس با تیم سرمایه‌گذاری" : "Contact investor team"}<ArrowRight size={16} /></Link></div>}
+      </section>
+    </main>
+  );
+}
