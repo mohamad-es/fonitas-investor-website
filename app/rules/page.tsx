@@ -1,5 +1,5 @@
-import { HubPageRoute } from "@/components/portal/hub-page";
+import { redirect } from "next/navigation";
 
-export default function RulesPage() {
-  return <HubPageRoute slug="rules" />;
+export default function RulesRedirect() {
+  redirect("/business-model");
 }
