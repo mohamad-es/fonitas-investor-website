@@ -1,0 +1,19 @@
+services:
+  app:
+    image: ghcr.io/gemvc/fonitas-developer-dashboard:${IMAGE_TAG:?IMAGE_TAG is required}
+    restart: unless-stopped
+    environment:
+      BACKEND_UPSTREAM: ${BACKEND_UPSTREAM:?BACKEND_UPSTREAM is required}
+      BACKEND_HOST: ${BACKEND_HOST:?BACKEND_HOST is required}
+      PUBLIC_HOST: ${PUBLIC_HOST:?PUBLIC_HOST is required}
+    networks:
+      - traefik_proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik_proxy"
+      - "traefik.http.routers.fonitas-developer-dashboard.rule=Host(`developers.fonitas.com`)"
+      - "traefik.http.services.fonitas-developer-dashboard.loadbalancer.server.port=80"
+
+networks:
+  traefik_proxy:
+    external: true

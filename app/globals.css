@@ -1,0 +1,77 @@
+@import "tailwindcss";
+@plugin "daisyui" { themes: fonitas --default; }
+@plugin "daisyui/theme" {
+  name: "fonitas";
+  default: true;
+  prefersdark: false;
+  color-scheme: light;
+  --color-primary: #147d59;
+  --color-primary-content: #ffffff;
+  --color-secondary: #65756e;
+  --color-secondary-content: #ffffff;
+  --color-accent: #147d59;
+  --color-accent-content: #ffffff;
+  --color-neutral: #182a24;
+  --color-neutral-content: #ffffff;
+  --color-base-100: #ffffff;
+  --color-base-200: #f7faf8;
+  --color-base-300: #e2e9e4;
+  --color-base-content: #182a24;
+  --color-info: #65756e;
+  --color-info-content: #ffffff;
+  --color-success: #147d59;
+  --color-success-content: #ffffff;
+  --color-warning: #65756e;
+  --color-warning-content: #ffffff;
+  --color-error: #182a24;
+  --color-error-content: #ffffff;
+  --radius-selector: 0.75rem;
+  --radius-field: 0.75rem;
+  --radius-box: 1.25rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}
+
+@theme {
+  --color-shop-green: var(--shop-green);
+  --color-shop-ink: var(--shop-ink);
+  --color-shop-muted: var(--shop-muted);
+  --color-shop-line: var(--shop-line);
+}
+
+@font-face { font-family: "iransans"; src: url("/font/IRANSansXFaNum-Regular.ttf") format("truetype"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "iransans"; src: url("/font/IRANSansXFaNum-Medium.ttf") format("truetype"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "iransans"; src: url("/font/IRANSansXFaNum-Bold.ttf") format("truetype"); font-weight: 700; font-style: normal; font-display: swap; }
+
+:root {
+  color-scheme: light;
+  --shop-green: #147d59;
+  --shop-ink: #182a24;
+  --shop-muted: #65756e;
+  --shop-line: #e2e9e4;
+  --background: #ffffff;
+  --surface: #ffffff;
+  --surface-soft: #f7faf8;
+  --foreground: var(--shop-ink);
+  --muted: var(--shop-muted);
+  --line: var(--shop-line);
+  --fonitas-green: var(--shop-green);
+  --fonitas-green-strong: var(--shop-green);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--background); overflow-x: clip; }
+body { margin: 0; min-width: 320px; overflow-x: clip; background: var(--background); color: var(--shop-ink); font-family: Arial, Helvetica, sans-serif; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+html[lang="fa"] body, html[lang="ar"] body, html[lang="fa"] button, html[lang="fa"] input, html[lang="fa"] select, html[lang="fa"] textarea, html[lang="ar"] button, html[lang="ar"] input, html[lang="ar"] select, html[lang="ar"] textarea { font-family: "iransans", Arial, Helvetica, sans-serif; }
+a { text-decoration: none; }
+img { display: block; max-width: 100%; }
+button, input, select, textarea { font: inherit; }
+button:not(:disabled), a { cursor: pointer; }
+:focus-visible { outline: 2px solid var(--shop-green); outline-offset: 3px; }
+::selection { background: var(--shop-green); color: #fff; }
+.font-display { letter-spacing: -0.035em; }
+html[dir="rtl"] body { direction: rtl; }
+html[dir="rtl"] .font-display { letter-spacing: normal; }
