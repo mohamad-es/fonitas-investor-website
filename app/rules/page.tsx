@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation";
+import { InvestorPage } from "@/components/investor/investor-page";
 
-export default function RulesRedirect() {
-  redirect("/business-model");
+export default function InvestorRulesPage() {
+  return <InvestorPage slug="investment" />;
 }
