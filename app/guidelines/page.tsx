@@ -1,5 +1,5 @@
-import { InvestorPage } from "@/components/investor/investor-page";
+import { HubPageRoute } from "@/components/portal/hub-page";
 
-export default function InvestorGuidelinesPage() {
-  return <InvestorPage slug="why-fonitas" />;
+export default function GuidelinesPage() {
+  return <HubPageRoute slug="guidelines" />;
 }
