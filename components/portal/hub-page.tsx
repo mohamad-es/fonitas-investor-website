@@ -8,11 +8,11 @@ import type { HubPage } from "@/lib/developer-hub-content";
 import { FaqPage } from "./faq-page";
 import { PrintButton } from "./print-button";
 
-const links = [["guidelines", "Guidelines"], ["rules", "Rules"], ["faq", "FAQs"]] as const;
+const links = [["guidelines", "Why FONITAS"], ["rules", "Investment Opportunity"], ["faq", "Investor FAQ"]] as const;
 const icons = { guidelines: Workflow, rules: ShieldCheck, faq: CircleHelp } as const;
 const pageIcons = { guidelines: Workflow, rules: ShieldCheck, faq: CircleHelp } as const;
-const rulesSidebar = [["Content", FileText], ["Quality", ClipboardCheck], ["Security", LockKeyhole], ["Users Privacy", UserRound], ["Copyright", Copyright], ["Payment", CreditCard], ["Advertisements", Megaphone], ["Deceptive Behavior", Ban], ["Rules Update History", History]] as const;
-const guidelinesSidebar = [["Getting Started", Gauge], ["Developer Account", UserRound], ["Application Setup", FileText], ["Submission", ClipboardCheck], ["Review Process", Workflow], ["Quality & QA", ShieldCheck], ["Publication", FileCheck2]] as const;
+const rulesSidebar = [["Investment Thesis", FileText], ["Business Model", ClipboardCheck], ["Market Opportunity", LockKeyhole], ["Scalability", UserRound], ["Growth Strategy", Copyright], ["Capital Use", CreditCard], ["Partnership", Megaphone], ["Risk & Governance", Ban], ["Investor Updates", History]] as const;
+const guidelinesSidebar = [["Publishing Partnership", Gauge], ["Distribution", UserRound], ["Application Producers", FileText], ["Growth Support", ClipboardCheck], ["Platform Opportunity", Workflow], ["Scalable Direction", ShieldCheck], ["Investor Perspective", FileCheck2]] as const;
 
 const pageClass = "mx-auto max-w-[1280px] px-8 pb-16 pt-[30px] max-[900px]:px-6 max-[700px]:px-5 max-[700px]:pb-[52px] max-[700px]:pt-7";
 const breadcrumbsClass = "mb-7 flex items-center gap-2.5 overflow-x-auto whitespace-nowrap text-xs text-base-content/55";
@@ -30,9 +30,9 @@ function DocsLayout({ page, locale, title, sectionTitle, sidebar, icon: PageIcon
 }) {
   const printLabel = locale === "fa" ? "چاپ" : locale === "ar" ? "طباعة" : "Print";
   const labels = locale === "fa"
-    ? (sidebar.length === 9 ? ["محتوا", "کیفیت", "امنیت", "حریم خصوصی کاربران", "کپی‌رایت", "پرداخت", "تبلیغات", "رفتار فریبنده", "تاریخچه تغییر قوانین"] : ["شروع کار", "حساب توسعه‌دهنده", "آماده‌سازی اپلیکیشن", "ارسال", "فرایند بررسی", "کیفیت و QA", "انتشار"])
+    ? (sidebar.length === 9 ? ["تز سرمایه‌گذاری", "مدل کسب‌وکار", "فرصت بازار", "مقیاس‌پذیری", "استراتژی رشد", "کاربرد سرمایه", "مشارکت", "ریسک و حاکمیت", "به‌روزرسانی سرمایه‌گذاران"] : ["مشارکت در انتشار", "توزیع", "تولیدکنندگان اپلیکیشن", "پشتیبانی رشد", "فرصت پلتفرم", "مسیر مقیاس‌پذیر", "دیدگاه سرمایه‌گذار"])
     : locale === "ar"
-      ? (sidebar.length === 9 ? ["المحتوى", "الجودة", "الأمان", "خصوصية المستخدمين", "حقوق النشر", "الدفع", "الإعلانات", "السلوك المضلل", "سجل تحديث القواعد"] : ["البدء", "حساب المطوّر", "إعداد التطبيق", "الإرسال", "عملية المراجعة", "الجودة وQA", "النشر"])
+      ? (sidebar.length === 9 ? ["أطروحة الاستثمار", "نموذج الأعمال", "فرصة السوق", "قابلية التوسع", "استراتيجية النمو", "استخدام رأس المال", "الشراكة", "المخاطر والحوكمة", "تحديثات المستثمرين"] : ["شراكة النشر", "التوزيع", "منتجو التطبيقات", "دعم النمو", "فرصة المنصة", "المسار القابل للتوسع", "منظور المستثمر"])
       : sidebar.map(([label]) => label);
 
   return (
@@ -40,7 +40,7 @@ function DocsLayout({ page, locale, title, sectionTitle, sidebar, icon: PageIcon
       <div className={breadcrumbsClass}>
         <Link href="/" className="font-semibold text-base-content/65 hover:text-primary">Fonitas</Link>
         <ChevronRight size={14} aria-hidden="true" />
-        <span>{locale === "fa" ? "توسعه‌دهندگان" : locale === "ar" ? "المطوّرون" : "Developers"}</span>
+        <span>{locale === "fa" ? "سرمایه‌گذاران" : locale === "ar" ? "المستثمرون" : "Investors"}</span>
         <ChevronRight size={14} aria-hidden="true" />
         <strong className="font-semibold text-base-content/70">{sectionTitle}</strong>
         <ChevronRight size={14} aria-hidden="true" />
@@ -59,8 +59,8 @@ function DocsLayout({ page, locale, title, sectionTitle, sidebar, icon: PageIcon
               </Link>
             ))}
           </div>
-          <div className="flex min-h-8 items-center gap-2 text-sm font-semibold text-base-content/80"><ChevronRight size={16} aria-hidden="true" /><span>{locale === "fa" ? "اجرای قوانین" : locale === "ar" ? "إنفاذ القواعد" : "Rules Enforcement"}</span></div>
-          <div className="flex min-h-8 items-center gap-2 text-sm font-semibold text-base-content/80"><ChevronRight size={16} aria-hidden="true" /><GraduationCap size={15} strokeWidth={1.9} aria-hidden="true" /><span>Academy</span></div>
+          <div className="flex min-h-8 items-center gap-2 text-sm font-semibold text-base-content/80"><ChevronRight size={16} aria-hidden="true" /><span>{locale === "fa" ? "روابط سرمایه‌گذاران" : locale === "ar" ? "علاقات المستثمرين" : "Investor Relations"}</span></div>
+          <div className="flex min-h-8 items-center gap-2 text-sm font-semibold text-base-content/80"><ChevronRight size={16} aria-hidden="true" /><GraduationCap size={15} strokeWidth={1.9} aria-hidden="true" /><span>Insights</span></div>
         </aside>
 
         <article className={contentClass}>
@@ -78,8 +78,8 @@ function DocsLayout({ page, locale, title, sectionTitle, sidebar, icon: PageIcon
 }
 
 function RulesPageView({ page, locale }: { page: HubPage; locale: "en" | "fa" | "ar" }) {
-  const title = locale === "fa" ? "قوانین" : locale === "ar" ? "القواعد" : "Rules";
-  const sectionTitle = locale === "fa" ? "قوانین انتشار" : locale === "ar" ? "قواعد النشر" : "Publishing Rules";
+  const title = locale === "fa" ? "فرصت سرمایه‌گذاری" : locale === "ar" ? "فرصة الاستثمار" : "Investment Opportunity";
+  const sectionTitle = title;
   return (
     <DocsLayout page={page} locale={locale} title={title} sectionTitle={sectionTitle} sidebar={rulesSidebar} icon={ShieldCheck}>
       {page.sections.map(section => <section className="mt-5 pb-0" key={section.title}><h2 className="mb-2 text-[19px] font-semibold leading-[1.4] text-base-content">{section.title}</h2><p className="mb-3 text-[15px] leading-[1.75] text-base-content/85">{section.body}</p>{section.items ? <ul className="m-0 mt-2 list-disc ps-5">{section.items.map(item => <li className="my-1.5 text-[15px] leading-[1.7] text-base-content/85" key={item}>{item}</li>)}</ul> : null}</section>)}
@@ -88,7 +88,7 @@ function RulesPageView({ page, locale }: { page: HubPage; locale: "en" | "fa" | 
 }
 
 function GuidelinesPageView({ page, locale }: { page: HubPage; locale: "en" | "fa" | "ar" }) {
-  const title = locale === "fa" ? "راهنما" : locale === "ar" ? "الإرشادات" : "Guidelines";
+  const title = locale === "fa" ? "چرا FONITAS" : locale === "ar" ? "لماذا FONITAS" : "Why FONITAS";
   return (
     <DocsLayout page={page} locale={locale} title={title} sectionTitle={title} sidebar={guidelinesSidebar} icon={Workflow}>
       {page.sections.map(section => <section className="mt-5 pb-0" key={section.title}><h2 className="mb-2 text-[19px] font-semibold leading-[1.4] text-base-content">{section.title.replace(/^\d+\.\s*/, "").replace(/^[۱-۵]\.\s*/, "")}</h2><p className="mb-3 text-[15px] leading-[1.75] text-base-content/85">{section.body}</p>{section.items ? <ul className="m-0 mt-2 list-disc ps-5">{section.items.map(item => <li className="my-1.5 text-[15px] leading-[1.7] text-base-content/85" key={item}>{item}</li>)}</ul> : null}</section>)}
@@ -105,9 +105,9 @@ export function HubPageView({ page, slug, locale = "en" }: { page: HubPage; slug
   return (
     <main className="mx-auto max-w-[1280px] px-8 py-8 max-md:px-5">
       <div className="mb-7 flex items-center gap-2 text-xs text-base-content/55"><Link href="/" aria-label="Home" className="text-base-content/65 hover:text-primary"><Home size={14} strokeWidth={2} /></Link><span aria-hidden="true">/</span><span>{page.title}</span></div>
-      <header className="mx-auto max-w-[850px] text-center"><div className="mx-auto mb-4 grid h-12 w-12 place-items-center rounded-xl border border-primary bg-primary/5 text-primary" aria-hidden="true"><PageIcon size={22} strokeWidth={1.9} /></div><p className="mb-2 text-xs font-bold uppercase tracking-[0.08em] text-primary">Developer Hub</p><h1 className="m-0 text-4xl font-bold tracking-tight text-base-content max-md:text-3xl">{page.title}</h1><p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-base-content/70">{page.intro}</p></header>
+      <header className="mx-auto max-w-[850px] text-center"><div className="mx-auto mb-4 grid h-12 w-12 place-items-center rounded-xl border border-primary bg-primary/5 text-primary" aria-hidden="true"><PageIcon size={22} strokeWidth={1.9} /></div><p className="mb-2 text-xs font-bold uppercase tracking-[0.08em] text-primary">FONITAS Investors</p><h1 className="m-0 text-4xl font-bold tracking-tight text-base-content max-md:text-3xl">{page.title}</h1><p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-base-content/70">{page.intro}</p></header>
       <div className="mt-12 grid grid-cols-[220px_minmax(0,1fr)] gap-12 max-md:grid-cols-1 max-md:gap-7">
-        <aside className="flex flex-col gap-1" aria-label="Documentation navigation">{links.map(([key, label]) => { const Icon = icons[key]; return <Link key={key} href={`/${key}`} aria-current={slug === key ? "page" : undefined} className={`flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium transition ${slug === key ? "bg-primary/10 text-primary" : "text-base-content/75 hover:bg-base-200 hover:text-primary"}`}><Icon size={16} strokeWidth={2} aria-hidden="true" /><span>{label}</span></Link>; })}</aside>
+        <aside className="flex flex-col gap-1" aria-label="Investor navigation">{links.map(([key, label]) => { const Icon = icons[key]; return <Link key={key} href={`/${key}`} aria-current={slug === key ? "page" : undefined} className={`flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium transition ${slug === key ? "bg-primary/10 text-primary" : "text-base-content/75 hover:bg-base-200 hover:text-primary"}`}><Icon size={16} strokeWidth={2} aria-hidden="true" /><span>{label}</span></Link>; })}</aside>
         <div className="space-y-6">{page.sections.map((section, index) => <section className="flex gap-5 rounded-2xl border border-base-300 bg-base-100 p-6 max-sm:p-5" key={section.title}><div className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-primary/10 text-xs font-bold text-primary" aria-hidden="true">{String(index + 1).padStart(2, "0")}</div><div><h2 className="m-0 text-lg font-semibold text-base-content">{section.title}</h2><p className="mt-2 text-sm leading-7 text-base-content/70">{section.body}</p>{section.items ? <ul className="mt-3 space-y-2">{section.items.map(item => <li className="flex items-start gap-2 text-sm leading-6 text-base-content/70" key={item}><FileCheck2 className="mt-1 shrink-0 text-primary" size={15} strokeWidth={2} aria-hidden="true" /><span>{item}</span></li>)}</ul> : null}</div></section>)}</div>
       </div>
     </main>
