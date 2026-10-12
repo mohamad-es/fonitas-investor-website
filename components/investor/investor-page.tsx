@@ -59,8 +59,9 @@ const content = {
 const icons = [Target, Globe2, BriefcaseBusiness, TrendingUp, LineChart, Lightbulb, HelpCircle];
 
 export async function InvestorPage({ slug }: { slug: keyof typeof content.en }) {
-  const locale = (await getLocale()) as "en" | "fa" | "ar";
-  const page = (content[locale] ?? content.en)[slug] ?? content.en[slug];
+  const locale = await getLocale();
+  const localeContent = locale === "fa" ? content.fa : content.en;
+  const page = localeContent[slug] ?? content.en[slug];
   const showCta = Boolean(page.cta) || slug === "faq";
   const ctaTitle = page.cta ?? (locale === "fa" ? "با تیم سرمایه‌گذاری FONITAS در ارتباط باشید" : "Connect with the FONITAS investor team");
   const ctaText = locale === "fa" ? "اطلاعات تکمیلی، Investor Deck و داده‌های تأییدشده از طریق فرایند سرمایه‌گذاری ارائه می‌شوند." : "Detailed information, the investor deck and verified metrics are shared through the investor process.";
