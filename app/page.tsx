@@ -1,6 +1,6 @@
 import { DeveloperJourney } from "@/components/portal/developer-journey";
 
-export default async function DeveloperHome() {
+export default function InvestorHome() {
   return (
     <main>
       <DeveloperJourney />
