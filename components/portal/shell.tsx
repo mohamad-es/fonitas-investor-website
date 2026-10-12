@@ -9,18 +9,33 @@ import { ArrowRight, ArrowUpRight, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const navItems = [
-  ["/guidelines", "Guidelines"],
-  ["/rules", "Rules"],
-  ["/blog", "Blog"],
-  ["/faq", "FAQs"],
+  ["/guidelines", "Why FONITAS"],
+  ["/rules", "Market Opportunity"],
+  ["/blog", "Investor Insights"],
+  ["/faq", "Investor FAQ"],
 ] as const;
 const localizedLabels = {
-  en: { "/guidelines": "Guidelines", "/rules": "Rules", "/blog": "Blog", "/faq": "FAQs" },
-  fa: { "/guidelines": "راهنما", "/rules": "قوانین", "/blog": "وبلاگ", "/faq": "سؤالات متداول" },
-  ar: { "/guidelines": "الإرشادات", "/rules": "القواعد", "/blog": "المدونة", "/faq": "الأسئلة الشائعة" },
+  en: {
+    "/guidelines": "Why FONITAS",
+    "/rules": "Market Opportunity",
+    "/blog": "Investor Insights",
+    "/faq": "Investor FAQ",
+  },
+  fa: {
+    "/guidelines": "چرا فونیتاس",
+    "/rules": "فرصت بازار",
+    "/blog": "بینش سرمایه‌گذاری",
+    "/faq": "سؤالات سرمایه‌گذاران",
+  },
+  ar: {
+    "/guidelines": "لماذا فونيتاس",
+    "/rules": "فرصة السوق",
+    "/blog": "رؤى المستثمرين",
+    "/faq": "أسئلة المستثمرين",
+  },
 } as const;
-const dashboardLabel = { en: "Open dashboard", fa: "باز کردن داشبورد", ar: "فتح لوحة التحكم" } as const;
-const developerPortalLabel = { en: "Developers Portal", fa: "پرتال توسعه‌دهندگان", ar: "بوابة المطورين" } as const;
+const accessLabel = { en: "Investor access", fa: "دسترسی سرمایه‌گذار", ar: "وصول المستثمر" } as const;
+const deckLabel = { en: "Request investor deck", fa: "دریافت Investor Deck", ar: "طلب ملف المستثمر" } as const;
 const menuLabels = {
   en: ["Open menu", "Close menu"],
   fa: ["باز کردن منو", "بستن منو"],
@@ -87,9 +102,7 @@ export function PortalShell({ children }: { children: ReactNode }) {
                   className={`relative py-2 text-[13px] font-medium transition-colors ${active ? "text-base-content" : "text-base-content/70 hover:text-base-content"}`}
                 >
                   {labels[href] ?? fallback}
-                  {active && (
-                    <span className="absolute inset-x-0 -bottom-0.5 mx-auto h-0.5 w-4 rounded-full bg-primary" />
-                  )}
+                  {active && <span className="absolute inset-x-0 -bottom-0.5 mx-auto h-0.5 w-4 rounded-full bg-primary" />}
                 </Link>
               );
             })}
@@ -114,19 +127,17 @@ export function PortalShell({ children }: { children: ReactNode }) {
               <option value="ar">العربية</option>
             </select>
             <a
-              href="https://developers.fonitas.com"
+              href="mailto:investors@fonitas.com?subject=FONITAS%20Investor%20Deck"
               className="hidden h-10 items-center rounded-xl border border-base-300 bg-base-100 px-4 text-[13px] font-medium text-base-content transition hover:border-primary/30 hover:bg-base-200 sm:inline-flex"
             >
-              {developerPortalLabel[locale]}
+              {deckLabel[locale]}
             </a>
             <Link
-              href="https://developers.fonitas.com"
+              href="/guidelines"
               className="btn btn-primary h-10 rounded-xl border-0 px-5 text-[13px] font-semibold shadow-none"
             >
-              <span className="hidden sm:inline">{dashboardLabel[locale]}</span>
-              <span className="sm:hidden">
-                {locale === "fa" ? "داشبورد" : locale === "ar" ? "لوحة التحكم" : "Open"}
-              </span>
+              <span className="hidden sm:inline">{accessLabel[locale]}</span>
+              <span className="sm:hidden">{locale === "fa" ? "سرمایه‌گذار" : locale === "ar" ? "مستثمر" : "Invest"}</span>
               <ArrowRight className="size-3.5 rtl:-scale-x-100" aria-hidden="true" />
             </Link>
             <button
@@ -160,18 +171,14 @@ export function PortalShell({ children }: { children: ReactNode }) {
             </div>
             <div className="mt-4 grid grid-cols-2 gap-3">
               <a
-                href="https://developers.fonitas.com"
+                href="mailto:investors@fonitas.com?subject=FONITAS%20Investor%20Deck"
                 tabIndex={open ? 0 : -1}
                 className="btn btn-secondary rounded-xl"
               >
-                {developerPortalLabel[locale]}
+                {deckLabel[locale]}
               </a>
-              <Link
-                href="https://developers.fonitas.com"
-                tabIndex={open ? 0 : -1}
-                className="btn btn-primary rounded-xl"
-              >
-                {dashboardLabel[locale]}
+              <Link href="/guidelines" tabIndex={open ? 0 : -1} className="btn btn-primary rounded-xl">
+                {accessLabel[locale]}
               </Link>
             </div>
           </nav>
