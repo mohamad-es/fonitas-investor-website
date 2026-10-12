@@ -1,5 +1,5 @@
-import { InvestorPage } from "@/components/investor/investor-page";
+import { HubPageRoute } from "@/components/portal/hub-page";
 
-export default function InvestorFaqPage() {
-  return <InvestorPage slug="faq" />;
+export default function FaqPage() {
+  return <HubPageRoute slug="faq" />;
 }
