@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation";
+import { InvestorPage } from "@/components/investor/investor-page";
 
-export default function BlogRedirect() {
-  redirect("/insights");
+export default function InvestorBlogPage() {
+  return <InvestorPage slug="insights" />;
 }
